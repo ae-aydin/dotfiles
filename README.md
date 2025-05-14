@@ -10,7 +10,7 @@
   - hyprland
   - hyprpaper
 - spicetify
-  - custom everforest theme for text based theme
+  - custom everforest color scheme for text based theme
 - waybar
 - bashrc
 
