@@ -1,0 +1,8 @@
+.bashrc:~/.bashrc
+.config/dunst:~/.config/dunst
+.config/fuzzel:~/.config/fuzzel
+.config/ghostty:~/.config/ghostty
+.config/hypr:~/.config/hypr
+.config/rofi:~/.config/rofi
+.config/spicetify/Themes/text-everforest:~/.config/spicetify/Themes/text-everforest
+.config/waybar:~/.config/waybar

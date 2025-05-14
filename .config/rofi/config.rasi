@@ -1,0 +1,102 @@
+* {
+    font: "Iosevka 18px";
+    font-weight: 100;
+
+    eg-hard-1: #1e2326;
+    eg-hard-2: #272e33;
+    eg-hard-3: #2e383c;
+    eg-hard-4: #374145;
+    eg-hard-5: #414b50;
+    eg-hard-6: #495156;
+    eg-hard-7: #4f5b58;
+    fg: #d3c6aa;
+
+    foreground: @fg;
+    background-color: @eg-hard-1;
+    border-color: @eg-hard-4;
+}
+
+window {
+    location: center;
+    anchor: center;
+    transparency: "screenshot";
+    padding: 8px;
+    border: 0px;
+    border-radius: 7px;
+    width: 600px;
+
+    background-color: @background-color;
+    spacing: 1;
+    children: [mainbox];
+    orientation: vertical;
+}
+
+mainbox {
+    background-color: inherit;
+    children: [inputbar, listview];
+}
+
+inputbar {
+    color: @foreground;
+    padding: 11px;
+    background-color: inherit;
+
+    border: 1px;
+    border-radius: 7px 7px 0px 0px;
+    border-color: @border-color;
+    children: ["prompt", "entry"];
+}
+
+prompt {
+    enabled: false;
+    background-color: inherit;
+    text-color: inherit;
+}
+
+entry {
+    placeholder: "Search...";
+    text-color: @fg;
+    background-color: inherit;
+    placeholder-color: @eg-hard-7;
+}
+
+listview {
+    background-color: inherit;
+    border: 0px;
+    dynamic: false;
+    scrollbar: false;
+    spacing: 6px;
+    lines: 10;
+}
+
+element {
+    padding: 5px;
+    background-color: @eg-hard-1;
+    text-color: @foreground;
+    border: 0px;
+    border-radius: 3px;
+    children: [element-text, element-icon];
+}
+
+element-text, element-icon {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element normal.normal, element normal.urgent, element normal.active {
+    background-color: @eg-hard-3;
+    color: @fg;
+    border: 0px;
+}
+
+element alternate.normal, element alternate.urgent, element alternate.active {
+    background-color: @eg-hard-2;
+    color: @fg;
+    border: 0px;
+}
+
+element selected.normal, element selected.urgent, element selected.active {
+    background-color: @eg-hard-4;
+    color: @fg;
+    border: 0px;
+}

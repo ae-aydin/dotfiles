@@ -1,0 +1,54 @@
+* {
+    border: none;
+    border-radius: 3px;
+    font-family: Lexend, Quicksand, Iosevka, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(39, 46, 51, 0.5);
+    border-bottom: 3px solid rgba(65, 75, 80, 0.5);
+    color: #d3c6aa;
+}
+
+tooltip {
+    background: rgba(39, 46, 51, 0.85);
+    border: 1px solid rgba(65, 75, 80, 0.85);
+}
+
+tooltip label {
+    color: #d3c6aa;
+}
+
+#memory,
+#cpu,
+#temperature,
+#bluetooth,
+#wireplumber,
+#network,
+#clock {
+    font-family: "JetBrains Mono Nerd Font Propo", sans-serif;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+#workspaces {
+    margin: 0 5px;
+    padding: 0 3px;
+}
+
+#workspaces button {
+    color: #d3c6aa;
+}
+
+#network.disconnected {
+    color: #e67e80;
+}
+
+#clock {
+    background-color: #414b50;
+    margin: 0 7px;
+    padding: 0 7px;
+}
