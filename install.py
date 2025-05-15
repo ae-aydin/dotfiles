@@ -42,7 +42,7 @@ def main():
             source_full_path = (DOTFILES_DIR / source_relative_str).resolve()
             target_full_path = Path(target_absolute_tilde_str).expanduser().resolve()
 
-            print(f"\nProcessing: '{source_relative_str}' -> '{target_full_path}'")
+            print(f"\nProcessing: '{source_full_path}' -> '{target_full_path}'")
 
             if not source_full_path.exists():
                 print(f"WARNING: Source '{source_full_path}' does not exist. Skipping.")
