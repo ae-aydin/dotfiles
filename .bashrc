@@ -24,11 +24,15 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-eval "$(starship init bash)"
+# Nvidia
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
-export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-
+# Rust
 . "$HOME/.cargo/env"
 
-export PATH=$PATH:/home/arif/.spicetify
+# starship.rs
+eval "$(starship init bash)"
+
+# Spicetify
+export PATH="$PATH:$HOME/.spicetify"
