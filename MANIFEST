@@ -6,3 +6,5 @@
 .config/rofi:~/.config/rofi
 .config/spicetify/Themes/text-everforest:~/.config/spicetify/Themes/text-everforest
 .config/waybar:~/.config/waybar
+.config/yazi:~/.config/yazi
+.config/zed:~/.config/zed

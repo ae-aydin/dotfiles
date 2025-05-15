@@ -1,17 +1,19 @@
 # Dotfiles
 
-## List of Configs
+## List of Configurations
 
 - dunst
 - fuzzel
-- rofi
 - ghostty
 - hypr
   - hyprland
   - hyprpaper
+- rofi
 - spicetify
   - custom everforest color scheme for text based theme
 - waybar
+- yazi
+- zed
 - bashrc
 
 ## Setup
