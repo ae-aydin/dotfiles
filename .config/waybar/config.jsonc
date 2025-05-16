@@ -17,11 +17,11 @@
       "warp-on-scroll": false,
       "format": "{icon}",
       "format-icons": {
-        "active": "\uf192",
+        "active": "\uf192", 
         "default": "\uf111"
       },
       "persistent-workspaces": {
-        "HDMI-A-2": [1]
+        "HDMI-A-2": [1, 7]
       }
     },
 
@@ -65,7 +65,7 @@
         "default": "\uf111"
       },
       "persistent-workspaces": {
-        "DP-6": [2, 3, 4, 5]
+        "DP-6": [2, 3, 4, 5, 6]
       }
     },
 

@@ -41,6 +41,7 @@ tooltip label {
 
 #workspaces button {
     color: #d3c6aa;
+    margin: 0 -5px;
 }
 
 #network.disconnected {
