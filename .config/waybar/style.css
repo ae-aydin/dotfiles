@@ -1,15 +1,20 @@
 * {
     border: none;
     border-radius: 3px;
-    font-family: Lexend, Quicksand, Iosevka, sans-serif;
-    font-size: 14px;
-    font-weight: 300;
+    font-family:
+        Lexend,
+        JetBrains Mono Nerd Font Propo,
+        sans-serif;
+    font-size: 15px;
+    font-weight: 400;
     min-height: 0;
 }
 
 window#waybar {
     background: rgba(39, 46, 51, 0.5);
-    border-bottom: 3px solid rgba(65, 75, 80, 0.5);
+    border-bottom: 2px solid rgba(65, 75, 80, 0.5);
+    border-left: 2px solid rgba(65, 75, 80, 0.5);
+    border-right: 2px solid rgba(65, 75, 80, 0.5);
     color: #d3c6aa;
 }
 
@@ -29,19 +34,18 @@ tooltip label {
 #wireplumber,
 #network,
 #clock {
-    font-family: "JetBrains Mono Nerd Font Propo", sans-serif;
-    font-size: 14px;
     padding: 0 10px;
 }
 
 #workspaces {
-    margin: 0 5px;
-    padding: 0 3px;
+    margin: 0 7px;
+    padding: 0 5px;
 }
 
 #workspaces button {
     color: #d3c6aa;
-    margin: 0 -1px;
+    margin: 0 1px;
+    padding: 0 5px;
 }
 
 #network.disconnected {
@@ -51,5 +55,5 @@ tooltip label {
 #clock {
     background-color: #414b50;
     margin: 0 7px;
-    padding: 0 7px;
+    padding: 0 10px;
 }

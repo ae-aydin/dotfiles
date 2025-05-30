@@ -7,7 +7,7 @@
     "margin-left": 7,
     "margin-right": 7,
     "margin-top": 7,
-    "margin-bottom": -10,
+    "margin-bottom": 0,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["clock"],
@@ -17,12 +17,12 @@
       "warp-on-scroll": false,
       "format": "{icon}",
       "format-icons": {
-        "active": "\uf192", 
-        "default": "\uf111"
+        "active": "\uf192",
+        "default": "\uf111",
       },
       "persistent-workspaces": {
-        "HDMI-A-2": [1, 7]
-      }
+        "HDMI-A-2": [1, 7],
+      },
     },
 
     "clock": {
@@ -32,9 +32,9 @@
       "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month",
-        "weeks-pos": "left"
-      }
-    }
+        "weeks-pos": "left",
+      },
+    },
   },
   {
     "layer": "top",
@@ -44,7 +44,7 @@
     "margin-left": 7,
     "margin-right": 7,
     "margin-top": 7,
-    "margin-bottom": -7,
+    "margin-bottom": 0,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
@@ -53,7 +53,7 @@
       "temperature",
       "wireplumber",
       "network",
-      "clock"
+      "clock",
     ],
 
     "hyprland/workspaces": {
@@ -62,40 +62,40 @@
       "format": "{icon}",
       "format-icons": {
         "active": "\uf192",
-        "default": "\uf111"
+        "default": "\uf111",
       },
       "persistent-workspaces": {
-        "DP-6": [2, 3, 4, 5, 6]
-      }
+        "DP-6": [2, 3, 4, 5, 6],
+      },
     },
 
     "hyprland/window": {
-      "max-length": 64
+      "max-length": 64,
     },
 
     "memory": {
       "interval": 5,
-      "format": "\uefc5 {}%"
+      "format": "\uefc5  {}%",
     },
 
     "cpu": {
       "interval": 5,
-      "format": "\udb83\udee0 {usage}%"
+      "format": "\udb83\udee0  {usage}%",
     },
 
     "temperature": {
       "interval": 5,
       "tooltip": false,
       "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
-      "format": "\uf2c9 {temperatureC}°C"
+      "format": "\uf2c9  {temperatureC}°C",
     },
 
     "wireplumber": {
-      "format": "{icon} {volume}%",
+      "format": "{icon}  {volume}%",
       "format-muted": "\ueee8",
       "on-click": "pavucontrol",
       "scroll-step": 4.0,
-      "format-icons": ["\uf026", "\uf027", "\uf028"]
+      "format-icons": ["\uf026", "\uf027", "\uf028"],
     },
 
     "network": {
@@ -104,7 +104,7 @@
       "tooltip": false,
       "format-ethernet": "\udb80\ude00",
       "format-disconnected": "\udb80\ude02",
-      "on-click": "nm-connection-editor"
+      "on-click": "nm-connection-editor",
     },
 
     "clock": {
@@ -114,8 +114,8 @@
       "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month",
-        "weeks-pos": "left"
-      }
-    }
-  }
+        "weeks-pos": "left",
+      },
+    },
+  },
 ]
