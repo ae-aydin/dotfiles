@@ -25,6 +25,10 @@
       },
     },
 
+    "hyprland/window": {
+      "max-length": 64,
+    },
+
     "clock": {
       "interval": 1,
       "format": "{:%H:%M}",
