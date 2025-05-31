@@ -1,5 +1,7 @@
+shell-integration = zsh
 font-family = "IosevkaTerm Nerd Font Mono"
-font-size = 14
+font-style = Regular
+font-size = 16
 background = 272e33
 foreground = d3c6aa
 gtk-single-instance = true

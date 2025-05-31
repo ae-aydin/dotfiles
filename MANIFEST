@@ -1,4 +1,5 @@
 .bashrc:~/.bashrc
+.zshrc:~/.zshrc
 .config/dunst:~/.config/dunst
 .config/fuzzel:~/.config/fuzzel
 .config/ghostty:~/.config/ghostty
