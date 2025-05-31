@@ -85,7 +85,7 @@ def main():
                 except OSError as e:
                     print(f"ERROR: Could not back up '{target_link_location}': {e}")
                     continue
-            
+
             print(f"Creating symlink: '{target_link_location}' -> '{source_path}'")
             try:
                 target_link_location.symlink_to(source_path, target_is_directory=source_path.is_dir())
