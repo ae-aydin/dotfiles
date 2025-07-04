@@ -3,11 +3,13 @@
 ## List of Configurations
 
 - dunst
+- foot
 - fuzzel
 - ghostty
 - hypr
   - hyprland
   - hyprpaper
+- kitty
 - rofi
 - spicetify
   - custom everforest color scheme for text based theme
@@ -15,6 +17,7 @@
 - yazi
 - zed
 - bashrc
+- zshrc
 
 ## Notes
 
@@ -23,6 +26,7 @@
 - Fonts
   - IosevkaTerm Nerd Mono
   - JetBrainsMono Nerd
+  - BlexMono Nerd
   - Lexend, Quicksand, Iosevka
 - Themes
   - GTK: Everforest Dark
