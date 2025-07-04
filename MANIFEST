@@ -1,9 +1,11 @@
 .bashrc:~/.bashrc
 .zshrc:~/.zshrc
 .config/dunst:~/.config/dunst
+.config/foot:~/.config/foot
 .config/fuzzel:~/.config/fuzzel
 .config/ghostty:~/.config/ghostty
 .config/hypr:~/.config/hypr
+.config/kitty:~/.config/kitty
 .config/rofi:~/.config/rofi
 .config/spicetify/Themes/text-everforest:~/.config/spicetify/Themes/text-everforest
 .config/waybar:~/.config/waybar
