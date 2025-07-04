@@ -41,3 +41,7 @@ git clone https://github.com/ae-aydin/dotfiles.git
 cd dotfiles
 python install.py
 ```
+
+## License
+
+MIT
