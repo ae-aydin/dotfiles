@@ -21,3 +21,6 @@ eval "$(starship init zsh)"
 
 # Spicetify
 export PATH="$PATH:$HOME/.spicetify"
+
+# MikTeX
+export PATH="$PATH:$HOME/bin"
