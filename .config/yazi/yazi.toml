@@ -1,2 +1,41 @@
-[manager]
+[mgr]
+ratio = [1, 4, 3]
+sort_by = "natural"
+sort_sensitive = false
+sort_dir_first = true
 show_hidden = true
+show_symlink = true
+title_format = "yazi"
+
+[preview]
+wrap = "yes"
+tab_size = 2
+image_filter = "nearest"
+image_quality = 60
+
+[opener]
+play = [
+    { run = 'mpv "$0"', orphan = true, for = "linux" },
+]
+edit = [
+    { run = 'zed "$0"', orphan = true, for = "linux" },
+]
+view = [
+    { run = 'imv "$0"', orphan = true, for = "linux" },
+]
+open = [
+    { run = 'xdg-open "$0"', orphan = true, for = "linux" },
+]
+
+[open]
+rules = [
+    { mime = "text/*", use = "edit" },
+    { mime = "video/*", use = "play" },
+    { mime = "image/*", use = "view" },
+    { name = "*.pdf", use = "open" },
+    { mime = "*/*", use = "open" }
+]
+
+[[opener.bulk-rename]]
+run = 'zed "$@"'
+block = true
