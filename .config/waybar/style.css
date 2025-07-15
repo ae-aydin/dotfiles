@@ -22,7 +22,6 @@ tooltip label {
 
 #workspaces {
     margin: 0 10px;
-    margin-top: 2px;
 }
 
 #workspaces button {
@@ -38,19 +37,12 @@ tooltip label {
 
 #custom-separator {
     margin-right: 15px;
-    margin-top: 2px;
-}
-
-#window,
-#clock {
-    margin-top: 2px;
 }
 
 #cpu,
 #pulseaudio,
 #network {
     margin: 0 10px;
-    margin-top: 2px;
 }
 
 #network {
