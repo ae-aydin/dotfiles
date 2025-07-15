@@ -3,6 +3,7 @@
 ## List of Configurations
 
 - dunst
+- fastfetch
 - foot
 - fuzzel
 - ghostty
@@ -15,6 +16,7 @@
   - custom everforest color scheme for text based theme
 - waybar
 - yazi
+  - use everforest theme
 - zed
 - bashrc
 - zshrc
@@ -30,7 +32,7 @@
   - Lexend, Quicksand, Iosevka
 - Themes
   - GTK: Everforest Dark
-- Icons: Gruvbox Plus
+- Icons: Gruvbox Plus Dark
 - Cursor: Breeze
 
 ## Setup
@@ -39,7 +41,9 @@
 cd ~
 git clone https://github.com/ae-aydin/dotfiles.git
 cd dotfiles
-python install.py
+chmod +x install.sh
+./install.sh
+
 ```
 
 ## License
