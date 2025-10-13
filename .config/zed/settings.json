@@ -4,8 +4,8 @@
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Everforest Dark"
+    "light": "Gruvbox Light Hard",
+    "dark": "Gruvbox Dark Hard"
   },
   "format_on_save": "off"
 }

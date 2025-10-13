@@ -1,8 +1,10 @@
 {
+  "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
-  "height": 32,
-  "modules-left": ["hyprland/workspaces", "custom/separator", "hyprland/window"],
+  "spacing": 0,
+  "height": 34,
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": ["pulseaudio", "cpu", "network"],
 
@@ -10,7 +12,7 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "active": "󱓻",
+      "active": "󰝤",
       "1": "1",
       "2": "2",
       "3": "3",
@@ -18,25 +20,12 @@
       "5": "5",
       "6": "6",
       "7": "7",
-      "default": "󱓼"
+      "default": "󰝣"
     },
     "persistent-workspaces": {
       "DP-6": [1, 2, 3, 4, 5],
       "HDMI-A-2": [6, 7]
     }
-  },
-
-  "custom/separator": {
-    "format": ""
-  },
-
-  "hyprland/window": {
-    "format": "{initialTitle}",
-    "tooltip-format": "{class}: {title}",
-    "max-length": 32,
-    "icon": true,
-    "icon-size": 16,
-    "separate-outputs": true
   },
 
   "clock": {
@@ -57,6 +46,7 @@
       "default": ["", ""]
     },
     "on-click": "pavucontrol",
+    "on-click-right": "easyeffects",
     "tooltip-format": "Volume {volume}%",
     "scroll-step": 4,
     "ignored-sinks": ["Easy Effects Sink"]
@@ -80,6 +70,6 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "ghostty -e nmtui-connect"
+    "on-click": "nm-connection-editor"
   }
 }

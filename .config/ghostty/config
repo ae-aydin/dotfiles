@@ -1,7 +1,8 @@
-shell-integration = zsh
+shell-integration = fish
+gtk-single-instance = true
+
 font-family = "IosevkaTerm Nerd Font Mono"
 font-style = Regular
 font-size = 14
-background = 272e33
-foreground = d3c6aa
-gtk-single-instance = true
+
+theme = Gruvbox Dark Hard

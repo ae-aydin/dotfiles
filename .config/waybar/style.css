@@ -1,50 +1,50 @@
 * {
-    font-family:
-        BlexMono Nerd Font Propo,
-        sans-serif;
-    font-size: 16px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: CaskaydiaMono Nerd Font Propo;
+    font-size: 15px;
 }
 
 window#waybar {
-    background: rgba(39, 46, 51, 1);
-    color: #d3c6aa;
+  background-color: #1d2021;
+  color: #ebdbb2;
 }
 
-tooltip {
-    background: rgba(39, 46, 51, 1);
-    border: 1px solid rgba(65, 75, 80, 1);
-    color: #d3c6aa;
+.modules-left {
+  margin-left: 8px;
 }
 
-tooltip label {
-    color: #d3c6aa;
-}
-
-#workspaces {
-    margin: 0 10px;
+.modules-right {
+  margin-right: 8px;
 }
 
 #workspaces button {
-    color: #d3c6aa;
-    margin: 0 1px;
-    padding: 0 5px;
+    padding: 0 6px;
+    margin: 0 1.5px;
 }
 
-#workspaces button.active,
-#custom-separator {
-    color: #a7c080;
+#workspaces button.active label {
+    color: #d79921;
 }
 
-#custom-separator {
-    margin-right: 15px;
+#workspaces button.empty {
+  opacity: 0.5;
 }
 
+#clock,
 #cpu,
 #pulseaudio,
 #network {
-    margin: 0 10px;
+    padding: 0 10px;
+    margin: 0 1.5px;
 }
 
-#network {
-    margin-right: 15px;
+#clock:hover,
+#workspaces button:hover,
+#cpu:hover,
+#pulseaudio:hover,
+#network:hover {
+  background-color: #282828;
+  border-radius: 0px;
 }
