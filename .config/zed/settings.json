@@ -1,11 +1,26 @@
 {
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "disable_ai": true,
+  "terminal": {
+    "font_weight": 300.0,
+    "font_size": 14.0
+  },
+  "buffer_font_weight": 200.0,
+  "buffer_font_family": "JetBrains Mono",
   "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "buffer_font_size": 18.0,
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light Hard",
     "dark": "Gruvbox Dark Hard"
   },
-  "format_on_save": "off"
+  "format_on_save": "off",
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "basedpyright",
+        "!ty",
+        "..."
+      ]
+    }
+  }
 }
