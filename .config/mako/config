@@ -1,3 +1,4 @@
+default-timeout=2000
 text-color=#ebdbb2
 font=CaskaydiaMono Nerd Font 12
 
@@ -5,16 +6,16 @@ font=CaskaydiaMono Nerd Font 12
 border-size=1
 background-color=#3c3836
 border-color=#7c6f64
-default-timeout=4000
+default-timeout=1500
 
 [urgency=normal]
 border-size=2
 background-color=#3c3836
 border-color=#458588
-default-timeout=4000
+default-timeout=2500
 
 [urgency=high]
 border-size=3
 background-color=#3c3836
 border-color=#d65d0e
-default-timeout=8000
+default-timeout=0
