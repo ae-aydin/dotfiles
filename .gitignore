@@ -3,3 +3,5 @@
 .config/fish/functions
 .config/fish/fish_variables
 .config/yazi/flavors
+.ropeproject/
+.directory
