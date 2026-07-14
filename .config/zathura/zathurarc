@@ -1,1 +1,4 @@
 set selection-clipboard clipboard
+set pages-per-row 1
+set scroll-full-page true
+set scroll-page-aware true
