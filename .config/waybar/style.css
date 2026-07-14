@@ -2,21 +2,21 @@
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: CaskaydiaMono Nerd Font Propo;
+    font-family: JetBrainsMono Nerd Font Propo;
     font-size: 15px;
 }
 
 window#waybar {
-  background-color: #1d2021;
-  color: #ebdbb2;
+    background-color: #1d2021;
+    color: #ebdbb2;
 }
 
 .modules-left {
-  margin-left: 8px;
+    margin-left: 8px;
 }
 
 .modules-right {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 #workspaces button {
@@ -29,7 +29,7 @@ window#waybar {
 }
 
 #workspaces button.empty {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 #clock,
@@ -45,6 +45,6 @@ window#waybar {
 #cpu:hover,
 #pulseaudio:hover,
 #network:hover {
-  background-color: #282828;
-  border-radius: 0px;
+    background-color: #282828;
+    border-radius: 0px;
 }
