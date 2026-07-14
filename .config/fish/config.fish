@@ -25,3 +25,6 @@ zoxide init fish | source
 # rg
 # eza
 # fd
+
+# opencode
+fish_add_path /home/arif/.opencode/bin
