@@ -27,3 +27,7 @@ set index-bg                  "#100F0F"
 set index-fg                  "#CECDC3"
 set index-active-bg           "#403E3C"
 set index-active-fg           "#CECDC3"
+
+# ctrl+click in the PDF jumps to that line in Zed (texlab builds with SyncTeX)
+set synctex true
+set synctex-editor-command "zed %{input}:%{line}"
