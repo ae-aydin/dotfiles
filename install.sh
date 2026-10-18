@@ -8,6 +8,7 @@ STAMP="$(date +%Y%m%d-%H%M%S)"
 
 TARGETS=(
     .bashrc
+    .claude/statusline.sh
     .config/autostart/blueman.desktop
     .config/autostart/nvidia-settings-user.desktop
     .config/autostart/org.freedesktop.problems.applet.desktop

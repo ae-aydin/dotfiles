@@ -52,3 +52,11 @@ sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidi
 sudo dnf config-manager setopt "cuda-fedora44-x86_64.excludepkgs=nvidia-driver*,nvidia-kmod*,kmod-nvidia*,nvidia-settings*,nvidia-xconfig*,nvidia-persistenced*,nvidia-modprobe*,libnvidia*"
 sudo dnf install cuda-toolkit-13-4 gcc15 gcc15-c++
 ```
+
+## Claude Code status line
+
+Add to `~/.claude/settings.json`:
+
+```json
+"statusLine": { "type": "command", "command": "~/.claude/statusline.sh" }
+```
