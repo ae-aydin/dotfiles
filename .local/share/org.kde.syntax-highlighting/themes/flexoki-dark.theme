@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "name": "Flexoki Dark",
+    "revision": 1,
+    "license": "MIT",
+    "copyright": [
+      "Flexoki by Steph Ango (https://stephango.com/flexoki)"
+    ]
+  },
+  "editor-colors": {
+    "BackgroundColor": "#1C1B1A",
+    "CurrentLine": "#282726",
+    "TextSelection": "#403E3C",
+    "IconBorder": "#1C1B1A",
+    "LineNumbers": "#575653",
+    "CurrentLineNumber": "#878580",
+    "Separator": "#282726",
+    "CodeFolding": "#343331",
+    "BracketMatching": "#403E3C",
+    "IndentationLine": "#282726",
+    "TabMarker": "#343331",
+    "WordWrapMarker": "#282726",
+    "SearchHighlight": "#5E3A1F",
+    "ReplaceHighlight": "#3E4A1C",
+    "SpellChecking": "#D14D41",
+    "ModifiedLines": "#D0A215",
+    "SavedLines": "#879A39",
+    "MarkBookmark": "#4385BE",
+    "MarkBreakpointActive": "#D14D41",
+    "MarkBreakpointReached": "#D0A215",
+    "MarkBreakpointDisabled": "#575653",
+    "MarkExecution": "#878580",
+    "MarkWarning": "#DA702C",
+    "MarkError": "#D14D41",
+    "TemplateBackground": "#1C1B1A",
+    "TemplatePlaceholder": "#343331",
+    "TemplateFocusedPlaceholder": "#403E3C",
+    "TemplateReadOnlyPlaceholder": "#282726"
+  },
+  "text-styles": {
+    "Normal": {
+      "text-color": "#CECDC3",
+      "selected-text-color": "#CECDC3"
+    },
+    "Others": {
+      "text-color": "#CECDC3",
+      "selected-text-color": "#CECDC3"
+    },
+    "Operator": {
+      "text-color": "#878580",
+      "selected-text-color": "#878580"
+    },
+    "Keyword": {
+      "text-color": "#879A39",
+      "selected-text-color": "#879A39"
+    },
+    "ControlFlow": {
+      "text-color": "#879A39",
+      "selected-text-color": "#879A39"
+    },
+    "Function": {
+      "text-color": "#DA702C",
+      "selected-text-color": "#DA702C"
+    },
+    "Variable": {
+      "text-color": "#4385BE",
+      "selected-text-color": "#4385BE"
+    },
+    "Attribute": {
+      "text-color": "#4385BE",
+      "selected-text-color": "#4385BE"
+    },
+    "BuiltIn": {
+      "text-color": "#CE5D97",
+      "selected-text-color": "#CE5D97"
+    },
+    "Extension": {
+      "text-color": "#CE5D97",
+      "selected-text-color": "#CE5D97"
+    },
+    "Preprocessor": {
+      "text-color": "#CE5D97",
+      "selected-text-color": "#CE5D97"
+    },
+    "Import": {
+      "text-color": "#CE5D97",
+      "selected-text-color": "#CE5D97"
+    },
+    "DataType": {
+      "text-color": "#D0A215",
+      "selected-text-color": "#D0A215"
+    },
+    "Constant": {
+      "text-color": "#D0A215",
+      "selected-text-color": "#D0A215"
+    },
+    "String": {
+      "text-color": "#3AA99F",
+      "selected-text-color": "#3AA99F"
+    },
+    "VerbatimString": {
+      "text-color": "#3AA99F",
+      "selected-text-color": "#3AA99F"
+    },
+    "SpecialString": {
+      "text-color": "#3AA99F",
+      "selected-text-color": "#3AA99F"
+    },
+    "Char": {
+      "text-color": "#3AA99F",
+      "selected-text-color": "#3AA99F"
+    },
+    "SpecialChar": {
+      "text-color": "#3AA99F",
+      "selected-text-color": "#3AA99F"
+    },
+    "DecVal": {
+      "text-color": "#8B7EC8",
+      "selected-text-color": "#8B7EC8"
+    },
+    "BaseN": {
+      "text-color": "#8B7EC8",
+      "selected-text-color": "#8B7EC8"
+    },
+    "Float": {
+      "text-color": "#8B7EC8",
+      "selected-text-color": "#8B7EC8"
+    },
+    "Comment": {
+      "text-color": "#575653",
+      "selected-text-color": "#575653",
+      "italic": true
+    },
+    "Documentation": {
+      "text-color": "#575653",
+      "selected-text-color": "#575653",
+      "italic": true
+    },
+    "Annotation": {
+      "text-color": "#878580",
+      "selected-text-color": "#878580"
+    },
+    "CommentVar": {
+      "text-color": "#878580",
+      "selected-text-color": "#878580"
+    },
+    "RegionMarker": {
+      "text-color": "#878580",
+      "selected-text-color": "#878580"
+    },
+    "Information": {
+      "text-color": "#4385BE",
+      "selected-text-color": "#4385BE"
+    },
+    "Warning": {
+      "text-color": "#DA702C",
+      "selected-text-color": "#DA702C"
+    },
+    "Alert": {
+      "text-color": "#D14D41",
+      "selected-text-color": "#D14D41",
+      "bold": true
+    },
+    "Error": {
+      "text-color": "#D14D41",
+      "selected-text-color": "#D14D41",
+      "underline": true
+    }
+  },
+  "custom-styles": {}
+}

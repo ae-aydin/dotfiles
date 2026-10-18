@@ -1,0 +1,10 @@
+require("host.autostart")
+require("host.env")
+require("host.monitors")
+require("host.vars")
+require("host.workspaces")
+
+require("theme.design")
+require("theme.input")
+require("theme.keybinds")
+require("theme.rules")

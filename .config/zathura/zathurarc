@@ -1,0 +1,29 @@
+set selection-clipboard clipboard
+set pages-per-row 1
+set scroll-page-aware true
+
+# Flexoki Dark
+set default-bg                "#100F0F"
+set default-fg                "#CECDC3"
+set statusbar-bg              "#1C1B1A"
+set statusbar-fg              "#CECDC3"
+set inputbar-bg               "#100F0F"
+set inputbar-fg               "#CECDC3"
+set notification-bg           "#1C1B1A"
+set notification-fg           "#CECDC3"
+set notification-error-bg     "#1C1B1A"
+set notification-error-fg     "#D14D41"
+set notification-warning-bg   "#1C1B1A"
+set notification-warning-fg   "#D0A215"
+set highlight-color           "rgba(218, 112, 44, 0.35)"
+set highlight-active-color    "rgba(218, 112, 44, 0.6)"
+set completion-bg             "#1C1B1A"
+set completion-fg             "#CECDC3"
+set completion-group-bg       "#100F0F"
+set completion-group-fg       "#878580"
+set completion-highlight-bg   "#403E3C"
+set completion-highlight-fg   "#CECDC3"
+set index-bg                  "#100F0F"
+set index-fg                  "#CECDC3"
+set index-active-bg           "#403E3C"
+set index-active-fg           "#CECDC3"

@@ -1,0 +1,84 @@
+# Flexoki Dark — neutral black for yazi
+# bg #100F0F, bg+ #1C1B1A, border #282726
+# fg #CECDC3, muted #878580, faint #575653, accent #DA702C
+
+[mgr]
+cwd = { fg = "#878580" }
+
+hovered = { fg = "#100F0F", bg = "#CECDC3" }
+preview_hovered = { fg = "#100F0F", bg = "#CECDC3" }
+
+find_keyword = { fg = "#DA702C", bold = true }
+find_position = { fg = "#DA702C", bg = "#282726", bold = true }
+
+marker_copied = { fg = "#100F0F", bg = "#CECDC3" }
+marker_cut = { fg = "#100F0F", bg = "#DA702C" }
+marker_marked = { fg = "#DA702C", bg = "#282726" }
+marker_selected = { fg = "#DA702C" }
+
+count_copied = { fg = "#100F0F", bg = "#CECDC3" }
+count_cut = { fg = "#100F0F", bg = "#DA702C" }
+count_selected = { fg = "#100F0F", bg = "#878580" }
+
+border_symbol = "│"
+border_style = { fg = "#282726" }
+
+[tab]
+active = { fg = "#100F0F", bg = "#CECDC3" }
+inactive = { fg = "#878580", bg = "#1C1B1A" }
+seps = { fg = "#282726", bg = "#100F0F" }
+
+[tabs]
+active = { fg = "#100F0F", bg = "#CECDC3" }
+inactive = { fg = "#878580", bg = "#1C1B1A" }
+sep_inner = { fg = "#282726", bg = "#100F0F" }
+sep_outer = { fg = "#282726", bg = "#100F0F" }
+
+[mode]
+normal_main = { fg = "#100F0F", bg = "#CECDC3", bold = true }
+normal_alt = { fg = "#CECDC3", bg = "#282726" }
+select_main = { fg = "#100F0F", bg = "#DA702C", bold = true }
+select_alt = { fg = "#DA702C", bg = "#282726" }
+unset_main = { fg = "#100F0F", bg = "#878580", bold = true }
+unset_alt = { fg = "#878580", bg = "#282726" }
+
+[status]
+overall = { fg = "#CECDC3", bg = "#100F0F" }
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+progress_label = { fg = "#CECDC3", bold = true }
+progress_normal = { fg = "#282726", bg = "#100F0F" }
+progress_error = { fg = "#DA702C", bg = "#100F0F" }
+perm_sep = { fg = "#282726" }
+perm_type = { fg = "#DA702C" }
+perm_read = { fg = "#CECDC3" }
+perm_write = { fg = "#878580" }
+perm_exec = { fg = "#575653" }
+
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#CECDC3" },
+  { mime = "video/*", fg = "#DA702C" },
+  { mime = "audio/*", fg = "#DA702C" },
+  { mime = "archive/*", fg = "#878580" },
+  { mime = "application/*x-executable", fg = "#DA702C" },
+  { name = "*", fg = "#CECDC3" },
+  { name = "*/", fg = "#CECDC3", bold = true },
+]
+
+[icon]
+globs = [
+  { name = "*/", text = "", fg = "#878580" },
+  { name = "*", text = "", fg = "#575653" },
+]
+dirs = [
+  { name = "*/", text = "", fg = "#878580" },
+]
+files = [
+  { name = "*", text = "", fg = "#575653" },
+]
+
+[vcs]
+count_added = { fg = "#CECDC3", bg = "#282726" }
+count_modified = { fg = "#DA702C", bg = "#282726" }
+count_deleted = { fg = "#878580", bg = "#282726" }

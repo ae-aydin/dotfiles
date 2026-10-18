@@ -1,0 +1,22 @@
+default-timeout=2000
+text-color=#CECDC3
+font=JetBrainsMono Nerd Font 11
+progress-color=over #403E3C
+
+[urgency=low]
+border-size=1
+background-color=#100F0F
+border-color=#282726
+default-timeout=1500
+
+[urgency=normal]
+border-size=2
+background-color=#1C1B1A
+border-color=#575653
+default-timeout=2500
+
+[urgency=high]
+border-size=3
+background-color=#1C1B1A
+border-color=#DA702C
+default-timeout=0

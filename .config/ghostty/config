@@ -1,0 +1,8 @@
+shell-integration = fish
+gtk-single-instance = true
+
+font-family = "IosevkaTerm Nerd Font Mono"
+font-style = Regular
+font-size = 14
+
+theme = Flexoki Dark
