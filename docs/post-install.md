@@ -18,11 +18,11 @@ gsettings set org.gnome.desktop.interface gtk-theme Breeze
 
 Also set `gtk-theme-name=Breeze` in `~/.config/gtk-{3,4}.0/settings.ini`, and pick Flexoki Dark inside Dolphin, Konsole and KWrite (outside Plasma, KDE apps need it set per app).
 
-Icons: [Gruvbox Plus Dark](https://github.com/SylEleuth/gruvbox-plus-icon-pack), grey folders:
+Icons: [Gruvbox Plus Dark](https://github.com/SylEleuth/gruvbox-plus-icon-pack), jade folders:
 
 ```bash
 cd ~/.local/share/icons/Gruvbox-Plus-Dark/places
-find . -type l -lname '*plasma*' | while read l; do t=$(readlink "$l"); ln -sfn "${t/plasma/grey}" "$l"; done
+find . -type l -lname '*plasma*' | while read l; do t=$(readlink "$l"); ln -sfn "${t/plasma/jade}" "$l"; done
 ```
 
 Fill its gaps (KDE action icons) from Papirus-Dark, which it's based on:
@@ -37,6 +37,12 @@ Colourful large versions of two toolbar glyphs KWrite uses in its settings sideb
 cd ~/.local/share/icons/Gruvbox-Plus-Dark/apps/scalable
 ln -s ../../devices/scalable/media-floppy.svg document-save.svg
 ln -s preferences-system-time.svg view-history.svg
+```
+
+Zed's launcher points at its own PNG, which bypasses icon themes; use the theme's icon instead:
+
+```bash
+sed -i 's|^Icon=.*|Icon=zed|' ~/.local/share/applications/dev.zed.Zed.desktop
 ```
 
 ## Login screen
