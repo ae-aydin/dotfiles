@@ -25,6 +25,20 @@ cd ~/.local/share/icons/Gruvbox-Plus-Dark/places
 find . -type l -lname '*plasma*' | while read l; do t=$(readlink "$l"); ln -sfn "${t/plasma/grey}" "$l"; done
 ```
 
+Fill its gaps (KDE action icons) from Papirus-Dark, which it's based on:
+
+```bash
+sed -i 's/^Inherits=.*/Inherits=Papirus-Dark,breeze-dark,hicolor/' ~/.local/share/icons/Gruvbox-Plus-Dark/index.theme
+```
+
+Colourful large versions of two toolbar glyphs KWrite uses in its settings sidebar (toolbars keep the glyphs):
+
+```bash
+cd ~/.local/share/icons/Gruvbox-Plus-Dark/apps/scalable
+ln -s ../../devices/scalable/media-floppy.svg document-save.svg
+ln -s preferences-system-time.svg view-history.svg
+```
+
 ## Login screen
 
 ```bash
