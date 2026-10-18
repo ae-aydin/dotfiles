@@ -7,6 +7,7 @@ import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell.Bluetooth
 import Quickshell.Services.Pipewire
+import Quickshell.Widgets
 
 ShellRoot {
   // ---- Flexoki Dark theme: single source of truth (same file = instant reload) ----
@@ -174,6 +175,31 @@ ShellRoot {
         color: theme.border
       }
 
+      // --- center: clock, centred on the whole bar; hover shows the full date ---
+      Text {
+        id: clock
+        anchors.centerIn: parent
+        property date now: new Date()
+        color: theme.fg
+        font { family: theme.fontFamily; pixelSize: theme.fontSize }
+        text: Qt.formatDateTime(now, "dddd hh:mm")
+        Timer { interval: 1000; running: true; repeat: true; onTriggered: clock.now = new Date() }
+        MouseArea { id: ma_clock; anchors.fill: parent; hoverEnabled: true }
+        BarPopup {
+          t: theme
+          target: clock
+          shown: ma_clock.containsMouse
+          title: Qt.formatDate(clock.now, "dddd, d MMMM yyyy")
+          details: {
+            // ISO week: the Thursday of this week decides which year/week it belongs to
+            const d = new Date(Date.UTC(clock.now.getFullYear(), clock.now.getMonth(), clock.now.getDate()));
+            d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+            const week = Math.ceil(((d - new Date(Date.UTC(d.getUTCFullYear(), 0, 1))) / 86400000 + 1) / 7);
+            return ["Week " + week];
+          }
+        }
+      }
+
       RowLayout {
         anchors.fill: parent
         anchors.leftMargin: theme.sideMargin
@@ -215,29 +241,28 @@ ShellRoot {
           }
         }
 
-        Item { Layout.fillWidth: true }
-
-        // --- center: clock, hover shows the full date ---
-        Text {
-          id: clock
-          property date now: new Date()
-          color: theme.fg
-          font { family: theme.fontFamily; pixelSize: theme.fontSize }
-          text: Qt.formatDateTime(now, "dddd hh:mm")
-          Timer { interval: 1000; running: true; repeat: true; onTriggered: clock.now = new Date() }
-          MouseArea { id: ma_clock; anchors.fill: parent; hoverEnabled: true }
-          BarPopup {
-            t: theme
-            target: clock
-            shown: ma_clock.containsMouse
-            title: Qt.formatDate(clock.now, "dddd, d MMMM yyyy")
-            details: {
-              // ISO week: the Thursday of this week decides which year/week it belongs to
-              const d = new Date(Date.UTC(clock.now.getFullYear(), clock.now.getMonth(), clock.now.getDate()));
-              d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-              const week = Math.ceil(((d - new Date(Date.UTC(d.getUTCFullYear(), 0, 1))) / 86400000 + 1) / 7);
-              return ["Week " + week];
-            }
+        // --- focused app: icon + name from its desktop entry, only on the monitor that has focus ---
+        Row {
+          id: focusedApp
+          readonly property var toplevel: Hyprland.activeToplevel
+          // native windows report a Wayland app id; XWayland ones only have Hyprland's class
+          readonly property string appId: toplevel?.wayland?.appId ?? toplevel?.lastIpcObject?.class ?? ""
+          // desktop entries load in the background; touching the list re-runs the lookup once they're in
+          readonly property var entry: DesktopEntries.applications.values.length && appId ? DesktopEntries.heuristicLookup(appId) : null
+          Layout.leftMargin: 10
+          spacing: 7
+          visible: Hyprland.focusedMonitor === Hyprland.monitorFor(screen) && appId !== ""
+          IconImage {
+            anchors.verticalCenter: parent.verticalCenter
+            implicitSize: 16
+            source: focusedApp.entry?.icon ? Quickshell.iconPath(focusedApp.entry.icon, true) : ""
+            visible: source != ""
+          }
+          Text {
+            anchors.verticalCenter: parent.verticalCenter
+            text: focusedApp.entry?.name || focusedApp.appId
+            color: theme.muted
+            font { family: theme.fontFamily; pixelSize: 13 }
           }
         }
 
