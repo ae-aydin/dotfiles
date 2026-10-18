@@ -6,3 +6,6 @@ font-style = Regular
 font-size = 14
 
 theme = Flexoki Dark
+
+# tab bar and progress bar accent (Flexoki orange instead of libadwaita blue)
+gtk-custom-css = flexoki-gtk.css

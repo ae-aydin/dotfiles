@@ -1,0 +1,6 @@
+/* libadwaita draws Ghostty's tabs and progress bar in its default blue; use the Flexoki accent instead */
+:root {
+    --accent-bg-color: #DA702C;
+    --accent-fg-color: #100F0F;
+    --accent-color: #DA702C;
+}
