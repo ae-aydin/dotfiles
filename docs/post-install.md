@@ -16,7 +16,7 @@ plasma-apply-colorscheme FlexokiDark
 gsettings set org.gnome.desktop.interface gtk-theme Breeze
 ```
 
-Also set `gtk-theme-name=Breeze` in `~/.config/gtk-{3,4}.0/settings.ini`, and Flexoki Dark in Konsole and KWrite.
+Also set `gtk-theme-name=Breeze` in `~/.config/gtk-{3,4}.0/settings.ini`, and pick Flexoki Dark inside Dolphin, Konsole and KWrite (outside Plasma, KDE apps need it set per app).
 
 Icons: [Gruvbox Plus Dark](https://github.com/SylEleuth/gruvbox-plus-icon-pack), grey folders:
 
