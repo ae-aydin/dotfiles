@@ -12,6 +12,7 @@ TARGETS=(
     .config/autostart/blueman.desktop
     .config/autostart/nvidia-settings-user.desktop
     .config/autostart/org.freedesktop.problems.applet.desktop
+    .config/autostart/imsettings-start.desktop
     .config/btop/btop.conf
     .config/fastfetch
     .config/fish
