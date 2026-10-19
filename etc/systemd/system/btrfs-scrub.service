@@ -1,0 +1,10 @@
+[Unit]
+Description=Btrfs scrub of / (checks every block against its checksum)
+Documentation=man:btrfs-scrub(8)
+
+[Service]
+Type=oneshot
+# -B waits for the scrub, so the result lands in the journal and a failure marks this unit failed
+ExecStart=/usr/bin/btrfs scrub start -B /
+Nice=19
+IOSchedulingClass=idle

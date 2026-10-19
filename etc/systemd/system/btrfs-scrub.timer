@@ -1,0 +1,11 @@
+[Unit]
+Description=Monthly btrfs scrub of /
+
+[Timer]
+OnCalendar=monthly
+# the PC is often off on the 1st: run at the next boot instead of skipping the month
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target

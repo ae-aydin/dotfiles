@@ -74,6 +74,17 @@ sudo install -D -m 644 etc/systemd/resolved.conf.d/10-dns-over-tls.conf /etc/sys
 sudo systemctl restart systemd-resolved
 ```
 
+## Btrfs scrub (monthly)
+
+Reads every block and checks it against its checksum, so silent corruption shows up early (single disk: detects, can't repair).
+
+```bash
+sudo install -m 644 -t /etc/systemd/system etc/systemd/system/btrfs-scrub.{service,timer}
+sudo systemctl daemon-reload && sudo systemctl enable --now btrfs-scrub.timer
+```
+
+Result: `journalctl -u btrfs-scrub` or `sudo btrfs scrub status /`.
+
 ## CUDA (optional)
 
 ```bash
