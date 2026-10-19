@@ -23,16 +23,11 @@ count_selected = { fg = "#100F0F", bg = "#878580" }
 border_symbol = "│"
 border_style = { fg = "#282726" }
 
-[tab]
-active = { fg = "#100F0F", bg = "#CECDC3" }
-inactive = { fg = "#878580", bg = "#1C1B1A" }
-seps = { fg = "#282726", bg = "#100F0F" }
-
 [tabs]
 active = { fg = "#100F0F", bg = "#CECDC3" }
 inactive = { fg = "#878580", bg = "#1C1B1A" }
-sep_inner = { fg = "#282726", bg = "#100F0F" }
-sep_outer = { fg = "#282726", bg = "#100F0F" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
 
 [mode]
 normal_main = { fg = "#100F0F", bg = "#CECDC3", bold = true }
@@ -62,14 +57,14 @@ rules = [
   { mime = "audio/*", fg = "#DA702C" },
   { mime = "archive/*", fg = "#878580" },
   { mime = "application/*x-executable", fg = "#DA702C" },
-  { name = "*", fg = "#CECDC3" },
-  { name = "*/", fg = "#CECDC3", bold = true },
+  { url = "*", fg = "#CECDC3" },
+  { url = "*/", fg = "#CECDC3", bold = true },
 ]
 
 [icon]
 globs = [
-  { name = "*/", text = "", fg = "#878580" },
-  { name = "*", text = "", fg = "#575653" },
+  { url = "*/", text = "", fg = "#878580" },
+  { url = "*", text = "", fg = "#575653" },
 ]
 dirs = [
   { name = "*/", text = "", fg = "#878580" },

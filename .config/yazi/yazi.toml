@@ -15,16 +15,17 @@ image_quality = 60
 
 [opener]
 play = [
-    { run = 'mpv "$0"', orphan = true, for = "linux" },
+    { run = 'mpv %s', orphan = true, for = "linux" },
 ]
 edit = [
-    { run = 'zed "$0"', orphan = true, for = "linux" },
+    { run = 'zed %s', orphan = true, for = "linux" },
+    { run = 'zed --wait %s', block = true, desc = "zed (wait)", for = "linux" },
 ]
 view = [
-    { run = 'imv "$0"', orphan = true, for = "linux" },
+    { run = 'imv %s', orphan = true, for = "linux" },
 ]
 open = [
-    { run = 'xdg-open "$0"', orphan = true, for = "linux" },
+    { run = 'xdg-open %s1', orphan = true, for = "linux" },
 ]
 
 [open]
@@ -32,10 +33,6 @@ rules = [
     { mime = "text/*", use = "edit" },
     { mime = "video/*", use = "play" },
     { mime = "image/*", use = "view" },
-    { name = "*.pdf", use = "open" },
+    { url = "*.pdf", use = "open" },
     { mime = "*/*", use = "open" }
 ]
-
-[[opener.bulk-rename]]
-run = 'zed "$@"'
-block = true
