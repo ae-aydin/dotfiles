@@ -4,6 +4,12 @@
 
 Log in with **Hyprland (uwsm-managed)**.
 
+Night light runs as a user service (starts neutral, toggled from the bar):
+
+```bash
+systemctl --user enable --now hyprsunset.service
+```
+
 ## Machine-specific
 
 - `.config/hypr/host/`: monitors, workspaces, autostart

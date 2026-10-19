@@ -1,4 +1,4 @@
-// Flexoki Dark bar: workspaces | clock | updates, bluetooth, vpn, volume, cpu, network
+// Flexoki Dark bar: workspaces | clock | updates, night light, bluetooth, vpn, volume, cpu, network
 // bg #100F0F, bg+ #1C1B1A, border #282726, fg #CECDC3, muted #878580, accent #DA702C
 import QtQuick
 import QtQuick.Layouts
@@ -188,6 +188,17 @@ ShellRoot {
     Timer { interval: 3600000; running: true; repeat: true; onTriggered: updates.refresh() }
   }
 
+  // ---- night light: off at login, toggled only from the bar ----
+  // hyprsunset can't report identity mode, so the bar keeps the state and re-applies it on (re)start
+  Scope {
+    id: night
+    readonly property int warm: 4500
+    property bool on: false
+    function apply() { Quickshell.execDetached(["hyprctl", "hyprsunset"].concat(on ? ["temperature", String(warm)] : ["identity"])) }
+    function toggle() { on = !on; apply() }
+    Component.onCompleted: apply()
+  }
+
   // per-screen bar via Variants
 
   Variants {
@@ -341,6 +352,34 @@ ShellRoot {
                 updates.flatpak > 0 ? "flatpak " + updates.flatpak : "",
                 updates.driverMismatch ? "Flatpak NVIDIA runtime missing for " + updates.driverMismatch : ""
               ]
+            }
+          }
+          // night light: moon is orange while warm; click toggles
+          Item {
+            id: nightButton
+            width: theme.btnWidth; height: theme.barHeight
+            Rectangle {
+              anchors.fill: parent
+              color: ma_night.pressed ? theme.bgPress : ma_night.containsMouse ? theme.bgHover : "transparent"
+            }
+            Text {
+              anchors.centerIn: parent
+              color: night.on ? theme.accent : (ma_night.containsMouse ? theme.fgBright : theme.muted)
+              font { family: theme.fontFamily; pixelSize: theme.iconSize }
+              text: "󰖔"
+            }
+            MouseArea {
+              id: ma_night
+              anchors.fill: parent
+              hoverEnabled: true
+              onClicked: night.toggle()
+            }
+            BarPopup {
+              t: theme
+              target: nightButton
+              shown: ma_night.containsMouse
+              titleColor: night.on ? theme.accent : theme.fg
+              title: night.on ? "Night light · " + night.warm + "K" : "Night light off"
             }
           }
           // bluetooth: left=power toggle right=blueman; hover lists connected devices

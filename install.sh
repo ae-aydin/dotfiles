@@ -25,6 +25,7 @@ TARGETS=(
     .config/qt6ct
     .config/quickshell
     .config/swappy
+    .config/systemd/user/hyprsunset.service.d
     .config/yazi
     .config/zathura
     .config/zed
