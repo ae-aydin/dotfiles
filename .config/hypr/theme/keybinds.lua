@@ -19,6 +19,9 @@ hl.bind("ALT + SPACE", hl.dsp.exec_cmd(vars.menu), { desc = "App launcher" })
 -- clipboard
 hl.bind("SUPER + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/clipboard.sh"), { desc = "Clipboard history" })
 
+-- calculator
+hl.bind("SUPER + C", hl.dsp.exec_cmd("~/.config/hypr/scripts/calc.sh"), { desc = "Calculator" })
+
 -- screenshots: copy to clipboard and save to ~/Pictures/Screenshots, SUPER+SHIFT+A annotates in swappy
 local shot = "XDG_SCREENSHOTS_DIR=$HOME/Pictures/Screenshots GRIMBLAST_EDITOR='swappy -f' grimblast --notify "
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd(shot .. "copysave area"), { desc = "Screenshot area" })
