@@ -39,10 +39,11 @@ ln -s ../../devices/scalable/media-floppy.svg document-save.svg
 ln -s preferences-system-time.svg view-history.svg
 ```
 
-Zed's launcher points at its own PNG, which bypasses icon themes; use the theme's icon instead:
+Zed's and Obsidian's launchers point at their own image files, which bypasses icon themes; use the theme's icons instead (redo Obsidian after Gear Lever updates or reintegrates it):
 
 ```bash
 sed -i 's|^Icon=.*|Icon=zed|' ~/.local/share/applications/dev.zed.Zed.desktop
+sed -i 's|^Icon=.*|Icon=obsidian|' ~/.local/share/applications/obsidian.desktop
 ```
 
 ## Login screen
