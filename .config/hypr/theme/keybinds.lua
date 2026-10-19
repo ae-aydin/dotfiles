@@ -34,6 +34,7 @@ hl.bind("SUPER + LEFT", hl.dsp.focus({ direction = "left" }), { desc = "Focus wi
 hl.bind("SUPER + RIGHT", hl.dsp.focus({ direction = "right" }), { desc = "Focus window" })
 hl.bind("SUPER + UP", hl.dsp.focus({ direction = "up" }), { desc = "Focus window" })
 hl.bind("SUPER + DOWN", hl.dsp.focus({ direction = "down" }), { desc = "Focus window" })
+hl.bind("SUPER + TAB", hl.dsp.exec_cmd("~/.config/hypr/scripts/windows.sh"), { desc = "Switch window" })
 
 -- move window
 hl.bind("SUPER + SHIFT + LEFT", hl.dsp.window.move({ direction = "left" }), { desc = "Move window" })
