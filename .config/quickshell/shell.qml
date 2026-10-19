@@ -288,7 +288,12 @@ ShellRoot {
         // --- focused app: icon + name from its desktop entry, only on the monitor that has focus ---
         Row {
           id: focusedApp
-          readonly property var toplevel: Hyprland.activeToplevel
+          // Hyprland keeps reporting the last window after switching to an empty workspace,
+          // so only count it while it sits on the focused workspace
+          readonly property var toplevel: {
+            const t = Hyprland.activeToplevel;
+            return t && t.workspace?.id === Hyprland.focusedWorkspace?.id ? t : null;
+          }
           // native windows report a Wayland app id; XWayland ones only have Hyprland's class
           readonly property string appId: toplevel?.wayland?.appId ?? toplevel?.lastIpcObject?.class ?? ""
           // desktop entries load in the background; touching the list re-runs the lookup once they're in
