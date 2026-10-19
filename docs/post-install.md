@@ -4,10 +4,12 @@
 
 Log in with **Hyprland (uwsm-managed)**.
 
-Night light runs as a user service (starts neutral, toggled from the bar):
+User services: night light (starts neutral, toggled from the bar), and mako only via Hyprland:
 
 ```bash
 systemctl --user enable --now hyprsunset.service
+# mako is started by Hyprland; stop D-Bus from also starting it (it races Plasma's notifications there)
+systemctl --user mask mako.service
 ```
 
 ## Machine-specific
