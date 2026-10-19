@@ -5,7 +5,7 @@ My Hyprland setup on Fedora, themed with [Flexoki Dark](https://stephango.com/fl
 Packages (plus the `lionheartp/Hyprland` and `errornointernet/quickshell` COPRs):
 
 ```
-hyprland uwsm quickshell hyprpaper hyprlock hypridle hyprsunset hyprshutdown mako fuzzel ghostty foot fish fzf zoxide
+hyprland uwsm quickshell hyprpaper hyprlock hypridle hyprsunset mako fuzzel ghostty foot fish fzf zoxide
 cliphist wl-clipboard grimblast swappy playerctl wiremix easyeffects btop nvtop yazi zathura imv mpv
 qt6ct polkit-kde blueman NetworkManager-tui
 ```
