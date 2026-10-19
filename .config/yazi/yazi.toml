@@ -31,7 +31,9 @@ open = [
 [open]
 rules = [
     { mime = "text/*", use = "edit" },
-    { mime = "video/*", use = "play" },
+    { mime = "application/{json,ndjson,javascript}", use = "edit" },
+    { mime = "inode/empty", use = "edit" },
+    { mime = "{audio,video}/*", use = "play" },
     { mime = "image/*", use = "view" },
     { url = "*.pdf", use = "open" },
     { mime = "*/*", use = "open" }
