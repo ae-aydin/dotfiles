@@ -8,7 +8,7 @@ hl.bind("SUPER + F", hl.dsp.window.float({ action = "toggle" }), { desc = "Toggl
 hl.bind("SUPER + P", hl.dsp.window.pseudo(), { desc = "Toggle pseudo-tiling" })
 hl.bind("SUPER + J", hl.dsp.layout("togglesplit"), { desc = "Toggle split direction" })
 hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"), { desc = "Lock screen" })
-hl.bind("SUPER + END", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"), { desc = "Log out" })
+hl.bind("SUPER + END", hl.dsp.exec_cmd("~/.config/hypr/scripts/power.sh"), { desc = "Power menu" })
 hl.bind("SUPER + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/keybinds.sh"), { desc = "Show keybinds" })
 
 -- apps
