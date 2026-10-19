@@ -1,4 +1,4 @@
-# Flexoki Dark — neutral black for yazi
+# Flexoki Dark for yazi; icons come from the preset
 # bg #100F0F, bg+ #1C1B1A, border #282726
 # fg #CECDC3, muted #878580, faint #575653, accent #DA702C
 
@@ -51,29 +51,17 @@ perm_write = { fg = "#878580" }
 perm_exec = { fg = "#575653" }
 
 [filetype]
+# Flexoki dark accents: blue #4385BE, cyan #3AA99F, green #879A39, yellow #D0A215, magenta #CE5D97, red #D14D41
 rules = [
-  { mime = "image/*", fg = "#CECDC3" },
-  { mime = "video/*", fg = "#DA702C" },
-  { mime = "audio/*", fg = "#DA702C" },
-  { mime = "archive/*", fg = "#878580" },
-  { mime = "application/*x-executable", fg = "#DA702C" },
+  { url = "*/", fg = "#4385BE", bold = true },
+  { url = "*", is = "orphan", fg = "#D14D41" },
+  { url = "*", is = "exec", fg = "#DA702C" },
+  { mime = "image/*", fg = "#D0A215" },
+  { mime = "{audio,video}/*", fg = "#CE5D97" },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#D14D41" },
+  { mime = "application/{pdf,doc,rtf,epub*}", fg = "#3AA99F" },
+  { url = "*.{md,tex,bib}", fg = "#3AA99F" },
+  { mime = "text/*", fg = "#879A39" },
+  { mime = "application/{json,ndjson,javascript,toml,yaml}", fg = "#879A39" },
   { url = "*", fg = "#CECDC3" },
-  { url = "*/", fg = "#CECDC3", bold = true },
 ]
-
-[icon]
-globs = [
-  { url = "*/", text = "", fg = "#878580" },
-  { url = "*", text = "", fg = "#575653" },
-]
-dirs = [
-  { name = "*/", text = "", fg = "#878580" },
-]
-files = [
-  { name = "*", text = "", fg = "#575653" },
-]
-
-[vcs]
-count_added = { fg = "#CECDC3", bg = "#282726" }
-count_modified = { fg = "#DA702C", bg = "#282726" }
-count_deleted = { fg = "#878580", bg = "#282726" }
