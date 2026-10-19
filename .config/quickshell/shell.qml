@@ -126,7 +126,7 @@ ShellRoot {
       stdout: SplitParser {
         onRead: line => {
           const f = line.split(" ");
-          if (f[0] === "cpu") stats.cpu = "CPU " + f[1] + "%";
+          if (f[0] === "cpu") stats.cpu = "CPU " + f[1] + "%" + (f[2] ? " · " + f[2] + "°C" : "");
           else if (f[0] === "mem") stats.mem = "RAM " + f[1] + " / " + f[2] + " GiB";
           else if (f[0] === "gpu") stats.gpu = "GPU " + f[1] + "% · " + f[2] + "°C";
         }
