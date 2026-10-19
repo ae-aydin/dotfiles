@@ -2,6 +2,5 @@
 .config/fish/conf.d
 .config/fish/functions
 .config/fish/fish_variables
-.config/yazi/flavors
 .directory
 sddm/kwinoutputconfig.json
