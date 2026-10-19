@@ -1,4 +1,4 @@
-// Flexoki Dark bar: workspaces | clock | bluetooth, vpn, volume, cpu, network
+// Flexoki Dark bar: workspaces | clock | updates, bluetooth, vpn, volume, cpu, network
 // bg #100F0F, bg+ #1C1B1A, border #282726, fg #CECDC3, muted #878580, accent #DA702C
 import QtQuick
 import QtQuick.Layouts
@@ -155,6 +155,39 @@ ShellRoot {
     }
   }
 
+  // ---- pending dnf/flatpak updates: checked hourly, on hover, and after the upgrade terminal closes ----
+  Scope {
+    id: updates
+    property int dnf: 0
+    property int flatpak: 0
+    property string driverMismatch: ""   // host driver version when the flatpak GL runtime doesn't match
+    readonly property int total: dnf + flatpak
+    readonly property bool attention: total > 0 || driverMismatch !== ""
+    function refresh() { if (!updatesProc.running) updatesProc.running = true }
+    function upgrade() { if (!upgradeProc.running) upgradeProc.running = true }
+    Process {
+      id: updatesProc
+      command: [Quickshell.shellPath("scripts/updates.sh")]
+      stdout: StdioCollector {
+        onStreamFinished: {
+          const [dnf, flatpak, driver] = text.trim().split("|");
+          updates.dnf = parseInt(dnf) || 0;
+          updates.flatpak = parseInt(flatpak) || 0;
+          updates.driverMismatch = driver ?? "";
+        }
+      }
+    }
+    // the terminal is a child process, so its exit means the upgrade window was closed
+    Process {
+      id: upgradeProc
+      command: ["ghostty", "--gtk-single-instance=false", "--confirm-close-surface=false", "-e", Quickshell.shellPath("scripts/upgrade.sh")]
+      onExited: updates.refresh()
+    }
+    // first check waits a minute so login isn't busy with it
+    Timer { interval: 60000; running: true; onTriggered: updates.refresh() }
+    Timer { interval: 3600000; running: true; repeat: true; onTriggered: updates.refresh() }
+  }
+
   // per-screen bar via Variants
 
   Variants {
@@ -272,6 +305,44 @@ ShellRoot {
         // terminal tools get their own ghostty process so --confirm-close-surface applies
         Row {
           spacing: theme.traySpacing
+          // updates: orange when something is pending; left=upgrade in a terminal right=check again
+          Item {
+            id: updButton
+            width: theme.btnWidth; height: theme.barHeight
+            Rectangle {
+              anchors.fill: parent
+              color: ma_upd.pressed ? theme.bgPress : ma_upd.containsMouse ? theme.bgHover : "transparent"
+            }
+            Text {
+              anchors.centerIn: parent
+              color: updates.attention ? theme.accent : (ma_upd.containsMouse ? theme.fgBright : theme.muted)
+              font { family: theme.fontFamily; pixelSize: theme.iconSize }
+              text: "󰚰"
+            }
+            MouseArea {
+              id: ma_upd
+              anchors.fill: parent
+              hoverEnabled: true
+              onContainsMouseChanged: if (containsMouse) updates.refresh()
+              acceptedButtons: Qt.LeftButton | Qt.RightButton
+              onClicked: mouse => {
+                if (mouse.button === Qt.RightButton) updates.refresh();
+                else updates.upgrade();
+              }
+            }
+            BarPopup {
+              t: theme
+              target: updButton
+              shown: ma_upd.containsMouse
+              titleColor: updates.attention ? theme.accent : theme.fg
+              title: updates.total > 0 ? updates.total + (updates.total === 1 ? " update" : " updates") : "Up to date"
+              details: [
+                updates.dnf > 0 ? "dnf " + updates.dnf : "",
+                updates.flatpak > 0 ? "flatpak " + updates.flatpak : "",
+                updates.driverMismatch ? "Flatpak NVIDIA runtime missing for " + updates.driverMismatch : ""
+              ]
+            }
+          }
           // bluetooth: left=power toggle right=blueman; hover lists connected devices
           Item {
             id: btButton
