@@ -42,8 +42,8 @@ hl.bind("SUPER + SHIFT + RIGHT", hl.dsp.window.move({ direction = "right" }), { 
 hl.bind("SUPER + SHIFT + UP", hl.dsp.window.move({ direction = "up" }), { desc = "Move window" })
 hl.bind("SUPER + SHIFT + DOWN", hl.dsp.window.move({ direction = "down" }), { desc = "Move window" })
 
--- switch workspace (1-5 main monitor, 6-8 secondary, see host/workspaces.lua)
-for i = 1, 8 do
+-- switch workspace (1-6 main monitor, 7-9 secondary, see host/workspaces.lua)
+for i = 1, 9 do
     hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }), { desc = "Go to workspace" })
     hl.bind("SUPER + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }), { desc = "Move window to workspace" })
 end

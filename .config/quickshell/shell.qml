@@ -254,8 +254,8 @@ ShellRoot {
         Row {
           spacing: theme.wsSpacing
           Repeater {
-            // Hyprland workspaces 1-5 on DP-6, 6-8 on HDMI-A-2 (matches workspaces.lua)
-            model: (Hyprland.monitorFor(screen)?.name === "HDMI-A-2") ? [6, 7, 8] : [1, 2, 3, 4, 5]
+            // Hyprland workspaces 1-6 on DP-6, 7-9 on HDMI-A-2 (matches workspaces.lua)
+            model: (Hyprland.monitorFor(screen)?.name === "HDMI-A-2") ? [7, 8, 9] : [1, 2, 3, 4, 5, 6]
             delegate: Item {
               property int wsId: modelData
               // active = shown on *this* monitor, so both bars mark their own workspace
