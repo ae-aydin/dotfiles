@@ -30,6 +30,7 @@ TARGETS=(
     .config/zathura
     .config/zed
     .local/share/color-schemes/FlexokiDark.colors
+    .local/share/konsole
     .local/share/org.kde.syntax-highlighting/themes/flexoki-dark.theme
 )
 

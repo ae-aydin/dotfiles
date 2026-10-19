@@ -24,7 +24,7 @@ plasma-apply-colorscheme FlexokiDark
 gsettings set org.gnome.desktop.interface gtk-theme Breeze
 ```
 
-Also set `gtk-theme-name=Breeze` in `~/.config/gtk-{3,4}.0/settings.ini`, and pick Flexoki Dark inside Dolphin and KWrite (outside Plasma, KDE apps need it set per app).
+Also set `gtk-theme-name=Breeze` in `~/.config/gtk-{3,4}.0/settings.ini`, and pick Flexoki Dark inside Dolphin and KWrite (outside Plasma, KDE apps need it set per app). Dolphin's terminal panel (konsole-part) uses the Flexoki profile once set as default: `printf '[Desktop Entry]\nDefaultProfile=Flexoki.profile\n' > ~/.config/konsolerc`
 
 Icons: [Gruvbox Plus Dark](https://github.com/SylEleuth/gruvbox-plus-icon-pack), jade folders:
 
