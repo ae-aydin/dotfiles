@@ -231,9 +231,15 @@ ShellRoot {
     }
     function tick() {
       left = Math.max(0, endsAt - Date.now());
-      if (left === 0) { state = "done"; Quickshell.execDetached(["pw-play", "/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"]) }
+      if (left === 0) state = "done";
     }
     Timer { interval: 250; running: pomodoro.state === "running"; repeat: true; onTriggered: pomodoro.tick() }
+    // chimes every 2 s until clicked, gives up after 30 s
+    Timer {
+      interval: 2000; running: pomodoro.state === "done"; repeat: true; triggeredOnStart: true
+      onTriggered: Quickshell.execDetached(["pw-play", "--volume", "0.6", "/usr/share/sounds/ocean/stereo/completion-success.oga"])
+    }
+    Timer { interval: 30000; running: pomodoro.state === "done"; onTriggered: pomodoro.state = "idle" }
     // blinks the bar button until clicked
     Timer {
       interval: 500; running: pomodoro.state === "done"; repeat: true; triggeredOnStart: true
