@@ -1,4 +1,4 @@
-// Flexoki Dark bar: workspaces | clock | updates, night light, bluetooth, vpn, volume, cpu, network
+// Flexoki Dark bar: workspaces | clock | pomodoro, updates, night light, bluetooth, vpn, volume, cpu, network
 // bg #100F0F, bg+ #1C1B1A, border #282726, fg #CECDC3, muted #878580, accent #DA702C
 import QtQuick
 import QtQuick.Layouts
@@ -199,6 +199,49 @@ ShellRoot {
     Component.onCompleted: apply()
   }
 
+  // ---- pomodoro: one timer shared by both bars; counts from an end time so it never drifts ----
+  Scope {
+    id: pomodoro
+    property int minutes: 25          // length of the next run, 5-min steps
+    property string state: "idle"     // idle | running | paused | done
+    property real endsAt: 0           // ms since epoch, while running
+    property real left: 0             // ms remaining
+    property bool flash: false
+    readonly property string clock: {
+      const s = Math.ceil(left / 1000);
+      return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+    }
+    function toggle() {
+      if (state === "done") state = "idle";
+      else if (state === "running") { tick(); state = "paused" }
+      else {
+        if (state === "idle") left = minutes * 60000;
+        endsAt = Date.now() + left;
+        state = "running";
+      }
+    }
+    function reset() { state = "idle"; left = 0 }
+    // idle: change the length; running/paused: add or take 5 min from what's left
+    function step(dir) {
+      if (state === "idle" || state === "done") { minutes = Math.max(5, Math.min(120, minutes + dir * 5)); state = "idle"; return }
+      const ms = dir * 300000;
+      if (left + ms < 60000) return;
+      left += ms;
+      if (state === "running") endsAt += ms;
+    }
+    function tick() {
+      left = Math.max(0, endsAt - Date.now());
+      if (left === 0) { state = "done"; Quickshell.execDetached(["pw-play", "/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"]) }
+    }
+    Timer { interval: 250; running: pomodoro.state === "running"; repeat: true; onTriggered: pomodoro.tick() }
+    // blinks the bar button until clicked
+    Timer {
+      interval: 500; running: pomodoro.state === "done"; repeat: true; triggeredOnStart: true
+      onTriggered: pomodoro.flash = !pomodoro.flash
+      onRunningChanged: if (!running) pomodoro.flash = false
+    }
+  }
+
   // per-screen bar via Variants
 
   Variants {
@@ -321,6 +364,60 @@ ShellRoot {
         // terminal tools get their own ghostty process so --confirm-close-surface applies
         Row {
           spacing: theme.traySpacing
+          // pomodoro: left=start/pause (or dismiss when done) right=reset, scroll=±5 min; shows time left while active
+          Item {
+            id: pomoButton
+            readonly property bool active: pomodoro.state === "running" || pomodoro.state === "paused"
+            width: Math.max(theme.btnWidth, pomoRow.implicitWidth + 12); height: theme.barHeight
+            Rectangle {
+              anchors.fill: parent
+              color: pomodoro.flash ? theme.accent : ma_pomo.pressed ? theme.bgPress : ma_pomo.containsMouse ? theme.bgHover : "transparent"
+            }
+            Row {
+              id: pomoRow
+              anchors.centerIn: parent
+              spacing: 5
+              Text {
+                anchors.verticalCenter: parent.verticalCenter
+                color: pomodoro.flash ? theme.bg
+                     : pomodoro.state === "running" || pomodoro.state === "done" ? theme.accent
+                     : ma_pomo.containsMouse ? theme.fgBright : theme.muted
+                font { family: theme.fontFamily; pixelSize: theme.iconSize }
+                text: "󰔛"
+              }
+              Text {
+                anchors.verticalCenter: parent.verticalCenter
+                visible: pomoButton.active
+                color: pomodoro.state === "running" ? theme.fg : theme.muted
+                font { family: theme.fontFamily; pixelSize: 13 }
+                text: pomodoro.clock
+              }
+            }
+            MouseArea {
+              id: ma_pomo
+              anchors.fill: parent
+              hoverEnabled: true
+              acceptedButtons: Qt.LeftButton | Qt.RightButton
+              onClicked: mouse => {
+                if (mouse.button === Qt.RightButton) pomodoro.reset();
+                else pomodoro.toggle();
+              }
+              onWheel: wheel => pomodoro.step(wheel.angleDelta.y > 0 ? 1 : -1)
+            }
+            BarPopup {
+              t: theme
+              target: pomoButton
+              shown: ma_pomo.containsMouse
+              titleColor: pomodoro.state === "idle" ? theme.fg : theme.accent
+              title: pomodoro.state === "done" ? "Time's up"
+                   : pomodoro.state === "running" ? "Focus · " + pomodoro.clock + " left"
+                   : pomodoro.state === "paused" ? "Paused · " + pomodoro.clock + " left"
+                   : "Pomodoro · " + pomodoro.minutes + " min"
+              details: [pomodoro.state === "done" ? "Click to dismiss"
+                      : pomoButton.active ? "Scroll ±5 min · right-click resets"
+                      : "Scroll ±5 min · click to start"]
+            }
+          }
           // updates: orange when something is pending; left=upgrade in a terminal right=check again
           Item {
             id: updButton
