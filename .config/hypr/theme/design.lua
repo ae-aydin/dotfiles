@@ -78,6 +78,6 @@ hl.config({
 
 hl.config({
     cursor = {
-        no_hardware_cursors = 0,
+        no_hardware_cursors = 2, -- auto = software cursor on NVIDIA; with 0 the cursor is missing from screen shares
     },
 })
